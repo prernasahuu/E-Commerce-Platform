@@ -1,21 +1,20 @@
-// signup.js
+
 
 document.getElementById('signup-form').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent the form from submitting
+    event.preventDefault(); 
 
-    // Get form values
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const address = document.getElementById('address').value;
 
-    // Validate the inputs
+    
     if (!email || !password) {
         alert('Please fill out all required fields.');
         return;
     }
 
-    // Send the data to the backend
+    
     try {
         const response = await fetch('http://localhost:5000/signup', {
             method: 'POST',
@@ -26,9 +25,9 @@ document.getElementById('signup-form').addEventListener('submit', async function
         const result = await response.json();
         if (response.ok) {
             alert('Sign-up successful!');
-            window.location.href = 'signin.html'; // Redirect to sign-in page
+            window.location.href = 'signin.html'; 
         } else {
-            alert(result.message); // Show error message from backend
+            alert(result.message); 
         }
     } catch (error) {
         console.error('Error during sign-up:', error);
