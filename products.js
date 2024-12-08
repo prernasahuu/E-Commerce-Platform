@@ -1,4 +1,4 @@
-// products.js
+
 
 async function displayProducts() {
     try {
@@ -6,7 +6,7 @@ async function displayProducts() {
         const products = await response.json();
 
         const productContainer = document.querySelector('.product-list');
-        productContainer.innerHTML = ''; // Clear existing products
+        productContainer.innerHTML = ''; 
 
         products.forEach(product => {
             const productCard = document.createElement('div');
@@ -26,5 +26,5 @@ async function displayProducts() {
     }
 }
 
-// Load products on page load
+
 document.addEventListener('DOMContentLoaded', displayProducts);
