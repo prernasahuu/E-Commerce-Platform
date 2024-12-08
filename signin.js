@@ -1,19 +1,17 @@
-// signin.js
 
 document.getElementById('signin-form').addEventListener('submit', async function (event) {
-    event.preventDefault(); // Prevent form from submitting
+    event.preventDefault(); 
 
-    // Get form values
+
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
-    // Validate email and password
+
     if (!email || !password) {
         alert('Please fill out all required fields.');
         return;
     }
 
-    // Send data to backend for authentication
     try {
         const response = await fetch('http://localhost:5000/signin', {
             method: 'POST',
@@ -24,10 +22,10 @@ document.getElementById('signin-form').addEventListener('submit', async function
         const result = await response.json();
         if (response.ok) {
             alert('Sign-in successful!');
-            localStorage.setItem('token', result.token); // Save JWT token in localStorage
-            window.location.href = 'products.html'; // Redirect to the products page
+            localStorage.setItem('token', result.token); 
+            window.location.href = 'products.html'; 
         } else {
-            alert(result.message); // Show error message from backend
+            alert(result.message); 
         }
     } catch (error) {
         console.error('Error during sign-in:', error);
